@@ -130,9 +130,15 @@ def main():
     # Else, hashes (such as MD5) of null cannot be computed.
     dt_input = bytearray(data[data_start:data_start + data_length])
 
-    #TODO: Extract input key array here
-    #TODO: Extract input key2 array here
-    #TODO: Extract input IV array here
+    if gen_obj.needs_key():
+        #TODO: Extract input key array here
+        pass
+    if gen_obj.needs_second_key():
+        #TODO: Extract input key2 array here
+        pass
+    if gen_obj.needs_IV():
+        #TODO: Extract input IV array here
+        pass
 
     #TODO: Pass other arguments (key,IV,key2) here
     # Perform operation and get output
