@@ -19,7 +19,7 @@ TODO
 # Supported Algorithms
 - [ ] Cut (Extract selected bytes)
 - [ ] Reverse (Reverses selected bytes)
-- [ ] UnHexlify + Hexlify (Converts raw bytes into string representations of its hex equivalent)
+- [x] UnHexlify + Hexlify (Converts raw bytes into string representations of its hex equivalent)
 - [ ] Base64
 - [ ] MD5
 - [ ] SHA256
@@ -44,9 +44,9 @@ TODO
 
 DT is written in Python 2.7.9+.
 
-# Dependencies
+# Dependencies (TODO:)
 
-TODO
+[hexdump package (included)](https://pypi.python.org/pypi/hexdump)
 
 
 # Contributions
