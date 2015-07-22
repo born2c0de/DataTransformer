@@ -66,16 +66,16 @@ def get_dt_argparser():
     grp_end.add_argument('-l','--length',help='Number of bytes to read',dest='length',action=opt_hex_input_action)
     # User can either provide entire keyfile to read or constant offset in inputfile as start of key or the key itself
     grp_keyfile = parser.add_mutually_exclusive_group()
-    grp_keyfile.add_argument('--keyfile',help='Use file contents as key',dest='keyfile')
+    grp_keyfile.add_argument('--keyfile',help='Use file contents as key',dest='keyfile',type=FileType('rb'))
     grp_keyfile.add_argument('--kb','--keybegin',help='Begin reading input for key from provided offset from inputfile',dest='keybegin',action=opt_hex_input_action)
-    grp_keyfile.add_argument('-k','--key',help='Use value as key',dest='key',action=opt_hex_input_action)
+    grp_keyfile.add_argument('-k','--key',help='Use value as key',dest='key',type=str)
     # User can either provide length of bytes to read or constant offset in keyfile
     grp_keyend = parser.add_mutually_exclusive_group()
     grp_keyend.add_argument('--ke','--keyend',help='Stop reading input for key from provided offset from inputfile',dest='keyend',action=opt_hex_input_action)
     grp_keyend.add_argument('--kl','--keylen',help='Number of bytes to read as key from inputfile',dest='keylen',action=opt_hex_input_action)
     # User can either provide entire keyfile to read or constant offset in inputfile as start of key2 or the key itself
     grp_key2file = parser.add_mutually_exclusive_group()
-    grp_key2file.add_argument('--key2file',help='Use file contents as key2',dest='key2file')
+    grp_key2file.add_argument('--key2file',help='Use file contents as key2',dest='key2file',type=FileType('rb'))
     grp_key2file.add_argument('--k2b','--key2begin',help='Begin reading input for key2 from provided offset from inputfile',dest='key2begin',action=opt_hex_input_action)
     grp_key2file.add_argument('--key2',help='Use value as key2',dest='key2',action=opt_hex_input_action)
     # User can either provide length of bytes to read or constant offset in key2file
@@ -84,7 +84,7 @@ def get_dt_argparser():
     grp_key2end.add_argument('--k2l','--key2len',help='Number of bytes to read as key2 from inputfile',dest='key2len',action=opt_hex_input_action)
     # User can either provide entire ivfile to read or constant offset in inputfile as start of IV
     grp_ivfile = parser.add_mutually_exclusive_group()
-    grp_ivfile.add_argument('--ivfile',help='Use file contents as IV',dest='ivfile')
+    grp_ivfile.add_argument('--ivfile',help='Use file contents as IV',dest='ivfile',type=FileType('rb'))
     grp_ivfile.add_argument('--ivb','--ivbegin',help='Begin reading input for IV from provided offset from inputfile',dest='ivbegin',action=opt_hex_input_action)
     # User can either provide length of bytes to read or constant offset in ivfile
     grp_ivend = parser.add_mutually_exclusive_group()
@@ -106,6 +106,9 @@ def main():
         else:
             print 'UNHANDLED EXCEPTION - CONTACT DEV - ', error
             return
+    except ValueError as error:
+        print 'Number in one of the arguments is in incorrect format. Use decimal or 0xhex.'
+        return
 
     # Get appropriate DTOperation object based on specified operation
     gen_obj = DTOperationFactory.get_dt_operator(args.operation)
@@ -122,17 +125,33 @@ def main():
     data_start = 0
     if args.begin:
         data_start = args.begin
-    if args.length:
+    if args.length and args.length > 0:
         data_length = args.length
     elif args.end and args.end > data_start:
-        data_length = args.end - args.begin
+        data_length = args.end - args.begin + 1
     # dt_input can be NULL so no need to check for that.
     # Else, hashes (such as MD5) of null cannot be computed.
     dt_input = bytearray(data[data_start:data_start + data_length])
 
+    dt_key1 = None
     if gen_obj.needs_key():
         #TODO: Extract input key array here
-        pass
+        if args.keyfile:
+            dt_key1 = args.keyfile.read()
+            args.keyfile.close()
+        elif args.keybegin and args.keybegin > 0 and args.keybegin < len(data):
+            key_length = len(data) - args.keybegin
+            if args.keyend and args.keyend > args.keybegin and args.keyend < len(data):
+                key_length = args.keyend - args.keybegin + 1
+            elif args.keylen and args.keylen < key_length and args.keylen > 0:
+                key_length = args.keylen
+            dt_key1 = data[args.keybegin:args.keybegin + key_length]
+        elif args.key:
+            dt_key1 = args.key
+        else:
+            print 'Key not provided or is in incorrect format.'
+            return
+
     if gen_obj.needs_second_key():
         #TODO: Extract input key2 array here
         pass
@@ -142,7 +161,8 @@ def main():
 
     #TODO: Pass other arguments (key,IV,key2) here
     # Perform operation and get output
-    dt_output = gen_obj.transform(dt_input=dt_input,dt_mode=args.mode)
+    print hex((len(dt_key1) + args.keybegin) - len(dt_input))
+    dt_output = gen_obj.transform(dt_input=dt_input,dt_mode=args.mode,dt_key1=dt_key1)
     if not dt_output:
         print 'Output was NULL.'
         return

@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from dthexlify import DTHexlify
 from dtnoop import DTNoOp
+from dtrc4 import DTRC4
 
 class DTOperationFactory:
     '''
@@ -17,5 +18,7 @@ class DTOperationFactory:
             return DTNoOp()
         elif operation == 'hxlfy':
             return DTHexlify()
+        elif operation == 'rc4':
+            return DTRC4()
         else:
             return None

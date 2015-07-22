@@ -28,7 +28,7 @@ TODO
 - [ ] AES (CBC mode)
 - [ ] GZip
 - [ ] APLIB
-- [ ] RC4
+- [x] RC4
 - [ ] Modified RC4
 - [ ] LZNT
 - [ ] TEA
