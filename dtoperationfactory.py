@@ -3,6 +3,7 @@
 from dthexlify import DTHexlify
 from dtnoop import DTNoOp
 from dtrc4 import DTRC4
+from dtbase64 import DTBase64
 
 class DTOperationFactory:
     '''
@@ -20,5 +21,7 @@ class DTOperationFactory:
             return DTHexlify()
         elif operation == 'rc4':
             return DTRC4()
+        elif operation == 'b64':
+            return DTBase64()
         else:
             return None

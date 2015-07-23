@@ -22,7 +22,6 @@ def get_choices():
     Return a list of supported operations.
     '''
     op_list = [
-        'cut',
         'hxlfy',
         'rev',
         'b64',
@@ -161,7 +160,6 @@ def main():
 
     #TODO: Pass other arguments (key,IV,key2) here
     # Perform operation and get output
-    print hex((len(dt_key1) + args.keybegin) - len(dt_input))
     dt_output = gen_obj.transform(dt_input=dt_input,dt_mode=args.mode,dt_key1=dt_key1)
     if not dt_output:
         print 'Output was NULL.'

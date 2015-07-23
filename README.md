@@ -17,10 +17,10 @@ The objective is to document algorithms used for obfuscation and data-hiding see
 TODO
 
 # Supported Algorithms
-- [ ] Cut (Extract selected bytes)
+- [x] Cut (Extract selected bytes)
 - [ ] Reverse (Reverses selected bytes)
 - [x] UnHexlify + Hexlify (Converts raw bytes into string representations of its hex equivalent)
-- [ ] Base64
+- [x] Base64
 - [ ] MD5
 - [ ] SHA256
 - [ ] SHA512
