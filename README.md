@@ -32,7 +32,7 @@ TODO
 - [ ] Modified RC4
 - [ ] LZNT
 - [ ] TEA
-- [ ] ZLIB
+- [x] ZLIB
 - [ ] Simple ADD/SUB
 - [ ] Rolling ADD/SUB
 - [ ] Simple XOR (w/ N-byte key)

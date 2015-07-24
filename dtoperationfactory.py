@@ -4,6 +4,7 @@ from dthexlify import DTHexlify
 from dtnoop import DTNoOp
 from dtrc4 import DTRC4
 from dtbase64 import DTBase64
+from dtzlib import DTZlib
 
 class DTOperationFactory:
     '''
@@ -23,5 +24,7 @@ class DTOperationFactory:
             return DTRC4()
         elif operation == 'b64':
             return DTBase64()
+        elif operation == 'zlib':
+            return DTZlib()
         else:
             return None
