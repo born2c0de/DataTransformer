@@ -2,15 +2,15 @@
 # -*- coding: utf-8 -*-
 from dtoperation import DTOperation
 
-class DTNoOp(DTOperation):
+class DTXor(DTOperation):
     '''
-    Do nothing. Return input as output.
+    Return XORd input as output
     '''
 
     def needs_key(self):
         '''
         '''
-        return False
+        return True
 
     def needs_second_key(self):
         '''
@@ -26,4 +26,7 @@ class DTNoOp(DTOperation):
         '''
         Return input as output.
         '''
-        return dt_input
+        dt_output = bytearray(len(dt_input))
+        for i, current_byte in enumerate(str(dt_input)):
+            dt_output[i] = ord(current_byte) ^ ord(dt_key1[i % len(dt_key1)])
+        return dt_output

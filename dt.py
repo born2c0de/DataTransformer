@@ -127,7 +127,7 @@ def main():
     if args.length and args.length > 0:
         data_length = args.length
     elif args.end and args.end > data_start:
-        data_length = args.end - args.begin + 1
+        data_length = args.end - data_start + 1
     # dt_input can be NULL so no need to check for that.
     # Else, hashes (such as MD5) of null cannot be computed.
     dt_input = bytearray(data[data_start:data_start + data_length])
@@ -138,7 +138,7 @@ def main():
         if args.keyfile:
             dt_key1 = args.keyfile.read()
             args.keyfile.close()
-        elif args.keybegin and args.keybegin > 0 and args.keybegin < len(data):
+        elif args.keybegin is not None and args.keybegin >= 0 and args.keybegin < len(data):
             key_length = len(data) - args.keybegin
             if args.keyend and args.keyend > args.keybegin and args.keyend < len(data):
                 key_length = args.keyend - args.keybegin + 1

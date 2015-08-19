@@ -5,6 +5,8 @@ from dtnoop import DTNoOp
 from dtrc4 import DTRC4
 from dtbase64 import DTBase64
 from dtzlib import DTZlib
+from dtreverse import DTReverse
+from dtxor import DTXor
 
 class DTOperationFactory:
     '''
@@ -26,5 +28,9 @@ class DTOperationFactory:
             return DTBase64()
         elif operation == 'zlib':
             return DTZlib()
+        elif operation == 'rev':
+            return DTReverse()
+        elif operation == 'xor':
+            return DTXor()
         else:
             return None
