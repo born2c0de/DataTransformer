@@ -18,7 +18,7 @@ TODO
 
 # Supported Algorithms
 - [x] Cut (Extract selected bytes)
-- [ ] Reverse (Reverses selected bytes)
+- [x] Reverse (Reverses selected bytes)
 - [x] UnHexlify + Hexlify (Converts raw bytes into string representations of its hex equivalent)
 - [x] Base64
 - [ ] MD5
@@ -35,7 +35,7 @@ TODO
 - [x] ZLIB
 - [ ] Simple ADD/SUB
 - [ ] Rolling ADD/SUB
-- [ ] Simple XOR (w/ N-byte key)
+- [x] Simple XOR (w/ N-byte key)
 - [ ] Rolling XOR (w/ N-byte key)
 - [ ] Rolling XOR (w/ N-byte key)
 - [ ] RoL/RoR
