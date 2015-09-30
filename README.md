@@ -46,8 +46,8 @@ DT is written in Python 2.7.9+.
 
 # Dependencies (TODO:)
 
-[hexdump package (included)](https://pypi.python.org/pypi/hexdump)
-[pyCrypto package](https://pypi.python.org/pypi/pyCrypto)
+- [hexdump package (included)](https://pypi.python.org/pypi/hexdump)
+- [pyCrypto package](https://pypi.python.org/pypi/pyCrypto)
 
 
 # Contributions
