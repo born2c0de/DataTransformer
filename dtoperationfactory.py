@@ -7,6 +7,7 @@ from dtbase64 import DTBase64
 from dtzlib import DTZlib
 from dtreverse import DTReverse
 from dtxor import DTXor
+from dtaesecb import DTAESECB
 
 class DTOperationFactory:
     '''
@@ -32,5 +33,7 @@ class DTOperationFactory:
             return DTReverse()
         elif operation == 'xor':
             return DTXor()
+        elif operation == 'aesecb':
+            return DTAESECB()
         else:
             return None

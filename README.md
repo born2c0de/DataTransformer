@@ -24,7 +24,7 @@ TODO
 - [ ] MD5
 - [ ] SHA256
 - [ ] SHA512
-- [ ] AES (ECB mode)
+- [x] AES (ECB mode)
 - [ ] AES (CBC mode)
 - [ ] GZip
 - [ ] APLIB
