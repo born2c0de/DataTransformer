@@ -21,9 +21,10 @@ TODO
 - [x] Reverse (Reverses selected bytes)
 - [x] UnHexlify + Hexlify (Converts raw bytes into string representations of its hex equivalent)
 - [x] Base64
-- [ ] MD5
-- [ ] SHA256
-- [ ] SHA512
+- [x] MD5
+- [x] SHA1
+- [x] SHA256
+- [x] SHA512
 - [x] AES (ECB mode)
 - [ ] AES (CBC mode)
 - [ ] GZip

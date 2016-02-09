@@ -8,6 +8,10 @@ from dtzlib import DTZlib
 from dtreverse import DTReverse
 from dtxor import DTXor
 from dtaesecb import DTAESECB
+from dtsha1 import DTSHA1
+from dtsha2 import DTSHA2
+from dtsha512 import DTSHA512
+from dtmd5 import DTMD5
 
 class DTOperationFactory:
     '''
@@ -35,5 +39,13 @@ class DTOperationFactory:
             return DTXor()
         elif operation == 'aesecb':
             return DTAESECB()
+        elif operation == 'sha1':
+            return DTSHA1()
+        elif operation == 'sha2':
+            return DTSHA2()
+        elif operation == 'sha512':
+            return DTSHA512()
+        elif operation == 'md5':
+            return DTMD5()
         else:
             return None
