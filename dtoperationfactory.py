@@ -12,6 +12,7 @@ from dtsha1 import DTSHA1
 from dtsha2 import DTSHA2
 from dtsha512 import DTSHA512
 from dtmd5 import DTMD5
+from dtcrc32 import DTCRC32
 
 class DTOperationFactory:
     '''
@@ -47,5 +48,7 @@ class DTOperationFactory:
             return DTSHA512()
         elif operation == 'md5':
             return DTMD5()
+        elif operation == 'crc32':
+            return DTCRC32()
         else:
             return None

@@ -42,7 +42,8 @@ def get_choices():
         'add',
         'sub',
         'rol',
-        'ror'
+        'ror',
+        'crc32'
     ]
     return op_list
 

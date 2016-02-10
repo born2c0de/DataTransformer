@@ -21,6 +21,7 @@ TODO
 - [x] Reverse (Reverses selected bytes)
 - [x] UnHexlify + Hexlify (Converts raw bytes into string representations of its hex equivalent)
 - [x] Base64
+- [x] CRC32
 - [x] MD5
 - [x] SHA1
 - [x] SHA256
