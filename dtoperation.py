@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from abc import ABCMeta, abstractmethod
 
+
 class DTOperation:
     '''
     Abstract class which serves as parent object of all DTOperations.
@@ -31,9 +32,8 @@ class DTOperation:
         '''
         pass
 
-
     @abstractmethod
-    def transform(self,dt_input,dt_key1=None,dt_key2=None,dt_iv=None,dt_mode='dec'):
+    def transform(self, dt_input, dt_key1=None, dt_key2=None, dt_iv=None, dt_mode='dec'):
         '''
         Main function which will be overridden in child classes.
         transform contains the actual operation code.

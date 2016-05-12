@@ -13,6 +13,8 @@ from dtsha2 import DTSHA2
 from dtsha512 import DTSHA512
 from dtmd5 import DTMD5
 from dtcrc32 import DTCRC32
+from dtaplib import DTAplib
+
 
 class DTOperationFactory:
     '''
@@ -50,5 +52,7 @@ class DTOperationFactory:
             return DTMD5()
         elif operation == 'crc32':
             return DTCRC32()
+        elif operation == 'aplib':
+            return DTAplib()
         else:
             return None

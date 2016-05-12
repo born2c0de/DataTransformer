@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from dtoperation import DTOperation
 
+
 class DTRC4(DTOperation):
     '''
     Performs RC4 encryption/decryption.
@@ -10,24 +11,19 @@ class DTRC4(DTOperation):
     '''
 
     def needs_key(self):
-        '''
-        '''
+        ''''''
         return True
 
     def needs_second_key(self):
-        '''
-        '''
+        ''''''
         return False
 
     def needs_IV(self):
-        '''
-        '''
+        ''''''
         return False
 
-    def transform(self,dt_input,dt_key1=None,dt_key2=None,dt_iv=None,dt_mode='dec'):
-        '''
-        Perform RC4.
-        '''
+    def transform(self, dt_input, dt_key1=None, dt_key2=None, dt_iv=None, dt_mode='dec'):
+        '''Perform RC4.'''
         swap1 = 0
         box = range(256)
         for i in xrange(256):

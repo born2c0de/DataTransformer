@@ -29,7 +29,7 @@ TODO
 - [x] AES (ECB mode)
 - [ ] AES (CBC mode)
 - [ ] GZip
-- [ ] APLIB
+- [x] APLIB
 - [x] RC4
 - [ ] Modified RC4
 - [ ] LZNT
@@ -48,8 +48,12 @@ DT is written in Python 2.7.9+.
 
 # Dependencies (TODO:)
 
-- [hexdump package (included)](https://pypi.python.org/pypi/hexdump)
 - [pyCrypto package](https://pypi.python.org/pypi/pyCrypto)
+
+# External Libraries/Code Used
+
+- [APLIB support](http://code.google.com/p/kabopan/)
+- [hexdump functionality](https://pypi.python.org/pypi/hexdump)
 
 
 # Contributions
