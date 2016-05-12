@@ -28,7 +28,7 @@ TODO
 - [x] SHA512
 - [x] AES (ECB mode)
 - [ ] AES (CBC mode)
-- [ ] GZip
+- [x] GZip
 - [x] APLIB
 - [x] RC4
 - [ ] Modified RC4
