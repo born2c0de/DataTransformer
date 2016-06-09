@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from zlib import decompress, compress
+from zlib import decompress, compress, error
 from dtoperation import DTOperation
 
 
@@ -25,5 +25,10 @@ class DTZlib(DTOperation):
         if dt_mode == 'enc':
             return compress(str(dt_input))
         elif dt_mode == 'dec':
-            return decompress(str(dt_input))
+            try:
+                return decompress(str(dt_input))
+            except error:
+                # Try again without Error CRC checks
+                return decompress(str(dt_input), -15)
+
         return None
