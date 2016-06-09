@@ -14,18 +14,15 @@ from dtsha512 import DTSHA512
 from dtmd5 import DTMD5
 from dtcrc32 import DTCRC32
 from dtaplib import DTAplib
+from dtgzip import DTGZip
 
 
 class DTOperationFactory:
-    '''
-    Factory class for DTOperation objects.
-    '''
+    '''Factory class for DTOperation objects.'''
 
     @staticmethod
     def get_dt_operator(operation=None):
-        '''
-        Returns appropriate DTOperation object.
-        '''
+        '''Returns appropriate DTOperation object.'''
         if not operation:
             return DTNoOp()
         elif operation == 'hxlfy':
@@ -54,5 +51,7 @@ class DTOperationFactory:
             return DTCRC32()
         elif operation == 'aplib':
             return DTAplib()
+        elif operation == 'gzip':
+            return DTGZip()
         else:
             return None
