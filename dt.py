@@ -159,7 +159,6 @@ def main():
 
     dt_iv = None
     if gen_obj.needs_IV():
-        dt_iv = data[args.ivbegin: args.ivlen + args.ivbegin]
         # TODO: Extract input IV array here
         pass
 
