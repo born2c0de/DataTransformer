@@ -15,6 +15,9 @@ from dtmd5 import DTMD5
 from dtcrc32 import DTCRC32
 from dtaplib import DTAplib
 from dtgzip import DTGZip
+from dtdesecb import DTDESECB
+from dtdescbc import DTDESCBC
+from dtsmartasm import DTSmartAsm
 
 
 class DTOperationFactory:
@@ -53,5 +56,11 @@ class DTOperationFactory:
             return DTAplib()
         elif operation == 'gzip':
             return DTGZip()
+        elif operation == 'desecb':
+            return DTDESECB()
+        elif operation == 'descbc':
+            return DTDESCBC()
+        elif operation == 'smartasm':
+            return DTSmartAsm()
         else:
             return None

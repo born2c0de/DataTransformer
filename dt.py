@@ -43,7 +43,10 @@ def get_choices():
         'sub',
         'rol',
         'ror',
-        'crc32'
+        'crc32',
+        'desecb',
+        'descbc',
+        'smartasm'
     ]
     return op_list
 
@@ -153,13 +156,16 @@ def main():
     if gen_obj.needs_second_key():
         # TODO: Extract input key2 array here
         pass
+
+    dt_iv = None
     if gen_obj.needs_IV():
+        dt_iv = data[args.ivbegin: args.ivlen + args.ivbegin]
         # TODO: Extract input IV array here
         pass
 
     # TODO: Pass other arguments (key, IV, key2) here
     # Perform operation and get output
-    dt_output = gen_obj.transform(dt_input=dt_input, dt_mode=args.mode, dt_key1=dt_key1)
+    dt_output = gen_obj.transform(dt_input=dt_input, dt_mode=args.mode, dt_key1=dt_key1, dt_iv=dt_iv)
     if not dt_output:
         print 'Output was NULL.'
         return

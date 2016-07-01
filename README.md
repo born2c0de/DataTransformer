@@ -31,7 +31,7 @@ TODO
 - [x] GZip
 - [x] APLIB
 - [x] RC4
-- [ ] Modified RC4
+- [ ] Modified RC4 (Spritz)
 - [ ] LZNT
 - [ ] TEA
 - [x] ZLIB
@@ -41,6 +41,10 @@ TODO
 - [ ] Rolling XOR (w/ N-byte key)
 - [ ] Rolling XOR (w/ N-byte key)
 - [ ] RoL/RoR
+- [x] DES (ECB mode)
+- [ ] DES (CBC mode)
+- [ ] DES (CFB mode)
+- [x] .NET SmartAssembly Packer Resource Decryptor
 
 # Build
 
