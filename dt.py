@@ -46,6 +46,7 @@ def get_choices():
         'crc32',
         'desecb',
         'descbc',
+        'tdesecb',
         'smartasm'
     ]
     return op_list

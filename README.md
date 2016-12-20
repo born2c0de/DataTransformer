@@ -42,6 +42,7 @@ TODO
 - [ ] Rolling XOR (w/ N-byte key)
 - [ ] RoL/RoR
 - [x] DES (ECB mode)
+- [x] TripleDES (ECB mode)
 - [ ] DES (CBC mode)
 - [ ] DES (CFB mode)
 - [x] .NET SmartAssembly Packer Resource Decryptor

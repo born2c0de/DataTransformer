@@ -17,6 +17,7 @@ from dtaplib import DTAplib
 from dtgzip import DTGZip
 from dtdesecb import DTDESECB
 from dtdescbc import DTDESCBC
+from dttdesecb import DTTripleDES
 from dtsmartasm import DTSmartAsm
 
 
@@ -62,5 +63,7 @@ class DTOperationFactory:
             return DTDESCBC()
         elif operation == 'smartasm':
             return DTSmartAsm()
+        elif operation == 'tdesecb':
+            return DTTripleDES()
         else:
             return None
